@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+body {
+    background-color: #F0F1F3;
+ }
+ 
+ /* icon logo */
+.icons {
+    width: 30vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logoIcon {
+    height: 80px;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: var(--shadow);
+}
+.search-container:hover input {
+    width: 200px;
+}
+.search-container input {
+    width: 32px;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+}
+.search-container input::placeholder {
+    color: #000000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.search-container input:hover::placeholder {
+    opacity: 1;
+}
+.search-container input:focus::placeholder {
+    opacity: 1;
+}
+.searchIcon {
+    height: 30px;
+    margin-left: 30px;
+    position: absolute;
+    top: 6px;
+    right: 15px;
+}
+.profileIcon, .cartIcon {
+    height: 32px;
+    margin-left: 30px;
+    transition: 0.4s;
+}
+.wishlistIcon {
+    height: 28px;
+    margin-left: 30px;
+    margin-top: 5px;
+    transition: 0.4s;
+}
+  /* hover effect */
+.profileIcon:hover, .cartIcon:hover {
+    transform: translateY(-20%);
+ 
+ }
+.wishlistIcon:hover {
+    transform: translateY(-20%);
+}
+ 
+  /* header */
+header {
+    background-color: #ffff;
+    height: 100px;
+    max-width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1000;
+}
+.container {
+    max-width: 1450px;
+    padding: 10px 13px;
+    margin: auto;
+}
+ 
+  /* logo and brand */
+.logoBrand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+.brandName {
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 1.7rem;
+    font-weight: 200;
+    user-select: none;
+}
+ 
+  /* navigation design */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 90px;
+}
+a {
+    text-decoration: none;
+}
+.navList a {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.4s;
+}
+.navList a:hover {
+    transform: translateY(-20%);
+}
+
+
+/* menu */
+.menu{
+    background-color:#E1D4C2;
+    max-width: 200px;
+    height: 570px;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border-radius: 28px;
+    /* border: 1px solid red; */
+}
+
+.btn button{
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.con-btn{
+    margin-top: 125px;
+}
+
+.user-container {
+    margin-top: -35em;
+}
+.user-info{
+    background-color: #FFFFFF;
+    width: 1080px;
+    height: 1118px;
+    margin-left: 250px;
+    border-radius: 23px;
+    border-style: groove;
+}
+
+.user-info img {
+    margin-left: 75px;
+    margin-top: 25px;
+}
+
+.user-info p{
+    margin-left: 62px;
+    margin-top: 60px;
+}
+
+ 
+a {
+    color: black;         /* Set the color to black */
+    text-decoration: none; /* Remove the underline */
+}
+
+#order{
+    margin-top: 70px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+}
+
+
+
+/* boxxxx */
+.info {
+    display: flex;
+    gap: 20px;       
+    width: 950px;         
+    height: 50px;       
+    border: 1px solid #000;
+    align-items: center;   
+    justify-content: space-between;
+    padding: 0 10px; 
+    background-color: #E1D4C2;
+    border-radius: 8px;
+    margin-left: 69px;
+
+}
+
+.info p {
+    font-size: 14px; 
+    margin: 0;       
+}
+
+
+.cons{
+    margin-bottom: 35px;
+}
+
+.cons1{
+    margin-bottom: 10px;
+}
+
+.cons1 .info{
+    background-color: white;
+}
+
+
+/* <!-- Write a review --> */
+
+#write{
+    margin-left: 69px;
+    margin-top: 70px;
+    padding-bottom: 20px ;
+    
+}
+
+
+.review-details{
+    background-color: white;
+    width: 950px;
+    height: 470px;
+    border-radius: 50px;
+    margin-left: 69px;
+    font-size: 15px;
+    border: 1px solid #000;
+
+}
+
+#radiance{
+  padding-top: 100px;
+  padding-left: 50px;
+}
+
+.message textarea {
+    width: 500px;
+    height: 197px;
+    margin-left: 50px;
+    margin-top: 35px;
+    text-align: left;  /* Aligns the text to the left */
+    overflow-y: auto;  /* Allows vertical scrolling if needed */
+    resize: none;  /* Disables resizing */
+    white-space: pre-wrap;  /* Preserves newlines and wraps text */
+    word-wrap: break-word;  /* Breaks long words to avoid overflow */
+    padding: 10px 10px;
+    border-radius: 18px;
+}
+
+.product{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin-left: 600px;
+    margin-top: -301px;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+

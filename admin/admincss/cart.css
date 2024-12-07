@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+
+   
+}
+
+
+/* navvvv */
+.nav {
+    background-color: #D9D9D9;
+    width: 100vw;
+    height: 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start; 
+    
+}
+
+#Beauty { 
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 35px;
+    font-weight: 300;
+    color: #333;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 25px;
+  
+ }
+
+ul{
+    margin-left: 130px;
+    display: flex; /* Align list items horizontally */
+    gap: 80px; /* Add spacing between the items */
+    list-style: none; /* Remove bullet points */    
+}
+
+li{
+    margin-top: 15px;
+}
+
+ul li a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Default link color */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+/* end */
+
+.icon1{
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 130px;
+    margin-top: 30px;
+    gap: 422px; 
+}
+
+
+.product{
+    width: 1266px;
+    background-color: #D9D9D9 ;
+    margin-left: 37px;
+    margin-top: 30px;
+    height: 225px;
+    margin-bottom: 30px;
+}
+
+/* checkbox */
+#check{
+    width: 28px;
+    height: 28px;
+    margin-top: 98px;
+    margin-left: 100px;
+}
+
+/* product image */
+#image{
+    margin-left: 170px;
+    margin-top: -95px; 
+}
+
+/* product name */
+.productname{
+   padding-left: 360px;
+   margin-top: -145px;
+}
+
+/* line */
+.line{
+    background-color: black;
+    height: 175px;
+    width: 1px;
+   margin-left: 600px;
+    margin-top: -155px; 
+}
+
+.DandI {
+    background-color:white;
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgb(0,0,0,0.2);
+    margin-left: 700px;
+    margin-top: -115px;
+}
+
+#p{
+    margin-top: 8px;
+    margin-left: 731px;
+    font-weight: bold;
+}
+
+.DandI span{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.DandI span.num{
+    font-size: 20px;
+    border-right: 2px solid rgb(0,0,0,0.2);
+    border-left: 2px solid rgb(0,0,0,0.2);
+    pointer-events: none;
+}
+
+
+
+.btns{
+    margin-top: -110px;
+}
+.btn{
+    padding-left: 980px;
+    margin-bottom: 15px;
+}
+
+.btn button{
+    width: 175px;
+    height: 57px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #CDC8C2;
+}
+
+
+
+

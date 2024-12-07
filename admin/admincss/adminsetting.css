@@ -1,0 +1,280 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #F0F1F3;
+    padding-top: 100px; /* Space for the fixed header */
+}
+
+/* Header */
+header {
+    background-color: white;
+    height: 100px;
+    width: 100vw;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-left: 213px;
+    padding-right: 250px;
+    padding-left: 40px;
+}
+
+/* Container */
+.container {
+    max-width: 1450px;
+    padding: 10px 13px;
+    margin: auto;
+}
+
+/* Logo and brand styling */
+.logoBrand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.brandName {
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 1.7rem;
+    font-weight: 200;
+    user-select: none;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Menu - Fixed position */
+.menu {
+    position: fixed;
+    top: 100px; /* Keeps it below the fixed header */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(241, 233, 216);
+    width: 210px;
+    height: 100vh; /* Adjust the height of the menu */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    margin-top: -100px;
+}
+
+/* Styling for buttons inside the menu */
+.btn {
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+}
+
+.btn button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    gap: 25px;
+}
+
+button p {
+    font-size: 20px;
+}
+
+/* Navigation Button Hover Effect */
+.nav-btn {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
+}
+
+/* Fixed position for user info */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 660px;
+    position: relative;
+    margin-top: 20px; /* Adjust as needed */
+    margin-left: 213px; /* Ensures content starts after menu */
+    padding-top: 50px;
+    justify-content: center;
+}
+
+/* Box styling */
+.box1 {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    width: 700px;
+    height: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: -30px;
+}
+
+.adminacct {
+    display: flex;
+    align-items: center;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box1 img {
+    padding: auto;
+}
+
+.update {
+    padding-top: 20px;
+}
+
+.update h3 {
+    margin-bottom: 15px;
+}
+
+.update button {
+    width: 220px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.update p {
+    margin-left: 10px;
+}
+
+.box2 {
+    width: 1000px;
+    height: 400px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.btnupdate {
+    width: 220px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.updateform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+}
+
+form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+}
+
+.save h2 {
+    margin-left: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+form img {
+    margin-top: 15px;
+    margin-left: 50px;
+    height: 250px;
+    width: 280px;
+    margin-left: 50px;
+    margin-right: 40px;
+}
+
+.inputs {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: auto;
+}
+
+.inputs1 {
+    display: flex;
+    align-items: center;
+    align-self: start;
+}
+
+.inputs1 input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 6px;
+    align-self: start;
+}
+
+.inputs input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.inputs p {
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 120px;
+}
+
+.save button {
+    height: 50px;
+    width: 250px;
+    margin-top: 30px;
+    margin-left: 70px;
+    border-radius: 10px;
+}
+
+.section {
+    margin-top: 220px;
+    margin-bottom: 130px;
+}
+
+/*===================== log out button ===================== */
+.button button {
+    color: red;
+    width: 145px;
+    height: 45px;
+    border-radius: 10px;
+}

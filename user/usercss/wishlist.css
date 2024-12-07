@@ -1,0 +1,266 @@
+:root {
+    --border: 2px solid orange;
+    --none: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+body {
+    background-color: #F0F1F3;
+ }
+ 
+ /* icon logo */
+.icons {
+    width: 30vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logoIcon {
+    height: 80px;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    border: 1.7px solid black;
+    box-shadow: var(--shadow);
+}
+.search-container:hover input {
+    width: 200px;
+}
+.search-container input {
+    width: 32px;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+}
+.search-container input::placeholder {
+    color: #000000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.search-container input:hover::placeholder {
+    opacity: 1;
+}
+.search-container input:focus::placeholder {
+    opacity: 1;
+}
+.searchIcon {
+    height: 30px;
+    margin-left: 30px;
+    position: absolute;
+    top: 6px;
+    right: 15px;
+}
+.profileIcon, .cartIcon {
+    height: 32px;
+    margin-left: 30px;
+    transition: 0.4s;
+}
+.wishlistIcon {
+    height: 28px;
+    margin-left: 30px;
+    margin-top: 5px;
+    transition: 0.4s;
+}
+  /* hover effect */
+.profileIcon:hover, .cartIcon:hover {
+    transform: translateY(-20%);
+ 
+ }
+.wishlistIcon:hover {
+    transform: translateY(-20%);
+}
+ 
+  /* header */
+header {
+    background-color: #ffff;
+    height: 100px;
+    max-width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.container {
+    max-width: 1450px;
+    padding: 10px 13px;
+    margin: auto;
+}
+ 
+  /* logo and brand */
+.logoBrand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+.brandName {
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 1.7rem;
+    font-weight: 200;
+    user-select: none;
+}
+ 
+  /* navigation design */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 90px;
+}
+a {
+    text-decoration: none;
+}
+.navList a {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.4s;
+}
+.navList a:hover {
+    transform: translateY(-20%);
+}
+
+
+#wishlist-section {
+    height: 86vh;
+}
+/* wishlist container */
+.wishlist-container {
+    width: 100%;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: var(--border); */
+}
+.wishlist-header {
+    margin: 30px 0 25px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wishlist-header img {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    margin: 0 0 0 60px;
+    cursor: pointer;
+}
+.wishlist-header h1 {
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    user-select: none;
+}
+.wishlist-content {
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    margin: 0 0 40px 0;
+    border-bottom: 1px solid gray;
+}
+.left-panel {
+    width: 50%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: var(--border); */
+}
+.left-panel img {
+    width: 100px;
+    height: 200px;
+}
+.product-info {
+    position: relative;
+    margin: 0 45px;
+}
+.product-info .wishlistIconFill {
+    width: 28px;
+    height: 30px;
+    margin: 77px 90px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.product-name {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    user-select: var(--none);
+}
+.product-price {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    user-select: var(--none);
+}
+.product-info .stars {
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.product-info .starIcon1 {
+    width: 20px;
+    height: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+.right-panel {
+    width: 50%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: var(--border); */
+}
+.product-quant-total-price {
+    margin: 0 70px;
+    /* border: var(--border); */
+}
+.btn-container {
+    display: flex;
+    gap: 35px;
+    /* border: var(--border); */
+}
+.btn-container button {
+    font-size: 1rem;
+    margin: 10px 0;
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
+    cursor: pointer;
+    /* user-select: var(--none); */
+}
+
+/* scroll bar design */
+body::-webkit-scrollbar {
+    display: flex;
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 50px;
+}

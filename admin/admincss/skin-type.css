@@ -1,0 +1,448 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    overflow : hidden; /* Prevent horizontal scroll */
+}
+
+
+        /* ==================sliding page importante to====================== */
+        /* Initially hide first page and make age-and-gender-section visible */
+        #age-and-gender-section {
+            background-color: white;
+            width: 100vw;
+            height: 600px;
+            display: flex;
+            justify-content: center; /* Horizontal centering */
+            align-items: center; /* Vertical centering */
+            position: absolute;
+            transition: transform 1s ease-in-out; /* Add transition effect */
+        }
+        
+        .firstpage {
+            background-color: white;
+            width: 100vw;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transition: transform 1s ease-in-out;
+            transform: translateX(100%); /* Initially hide first page */
+        }
+        
+        /* After the button click, the first page will slide in */
+        .firstpage.active {
+            transform: translateX(0);
+        }
+        
+        /* The age-and-gender-section will slide out of view */
+        #age-and-gender-section.hidden {
+            transform: translateX(-100%);
+        } 
+        /* ====================end================== */
+
+
+.firstpage, .secondpage {
+    background-color: white;
+    width: 100vw;
+    height: 600px; 
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    position: absolute;
+    transition: transform 1s ease-in-out; /* Add transition effect */
+} 
+
+  /* Set initial position for the second page */
+  .secondpage {
+    transform: translateX(100%); /* Initially hide it to the right */
+}
+
+
+/* icon logo */
+.logoIcon {
+    height: 80px;
+}
+.searchIcon, .profileIcon {
+    height: 32px;
+    margin-left: 30px;
+}
+
+/* header */
+header {
+    background-color:  #D9D9D9;
+    max-width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1000;
+}
+.container{
+    max-width: 1450px;
+    padding: 10px 13px;
+    margin: auto;
+}
+
+/* logo and brand */
+.logoBrand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-left: 130px;
+}
+.brandName {
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+/* navigation design */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 90px;
+    margin-right: 150px;
+    padding-top: 15px;
+}
+a {
+    text-decoration: none;
+}
+.navList a {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* end */
+
+/* +++++++++++++++++++++++++++++++++++++++ BALE ITO FIRST PAGE ++++++++++++++++++++++++++ */
+#age-and-gender-section {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    
+}
+#age-and-gender-section .container {
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 105px;
+}
+.next-btn {
+    position: absolute;  
+    top: 0;
+    right: -100px;
+    margin: 8px 20px;
+    margin-top: 450px;
+    margin-right: 30px;
+ 
+}
+.next-btn button {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 30px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.age-gender-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 23px;
+}
+.age-left-panel {
+    width: 650px;
+    height: 515px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.age-panel-title {
+    margin: 20px 0;
+}
+.age-panel-title .title {
+    font-size: 2rem;
+}
+.age-button-selection {
+    width: 400px;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.age-button-selection button, .gender-button-selection button {
+    width: 180px;
+    height: 40px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.age-right-panel {
+    width: 650px;
+    height: 515px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gender-panel-title .title {
+    font-size: 2rem;
+}
+.gender-button-selection {
+    width: 390px;
+    height: 13vh;
+    margin: 12px 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+/* ++++++++++++++++++End++++++++++++++++++++++++ */
+
+
+
+/* naggagulo ang code bale eto 2nd page to */
+.secondpage{
+    background-color:white;
+    width: 100vw;
+    height: 600px; 
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+}
+
+.text-with-lines {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: #000000; /* Text color */
+    width: 330px; /* Set fixed width */
+    margin-left: -500px;  
+
+}
+
+.text-with-lines::before,
+.text-with-lines::after {
+    content: "";
+    flex: 1;
+    border-bottom: 4px solid #000000;
+    margin: 0 10px;
+    box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 30%;
+}
+
+.btns1 {
+    background-color: #D9D9D9;
+    width: 1230px;
+    height: 465px;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center horizontally */
+    padding: 20px;
+    overflow: hidden;
+    position: relative; /* To manage positioning of children */
+}
+
+#paragraph1 {
+    font-size: 20px;
+    text-align: center; /* Center the text */
+    margin-left: 0;
+    margin-top: 0;
+    flex: 1;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 10px;
+    margin-right: 500px;
+}
+
+#paragraph {
+    line-height: 1.5;
+    flex: 1; /* Allow paragraph to take available space */
+    margin-top: 150px;
+    margin-left: 150px;
+}
+
+
+
+.con-btn1 {
+    margin-left: 450px;
+    margin-top: -500px;
+    margin-bottom: 47px;
+  
+}
+
+.btn1 {
+    margin-bottom: 30px;
+}
+
+.btns1 button {
+    width: 250px;
+    height: 40px;
+    border-radius: 24px;
+}
+/*++++++++++++++++++++++++++++++++++++++++++ hanggang dito ++++++++++++++++++++++++++++++ */
+
+
+/* +++++++++++++++++++++++++++++ bale ito last page++++++++++++++++++++++++++++++++++++++++ */
+.firstpage{
+    background-color:white;
+    width: 100vw;
+    height: 600px; 
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+
+}
+
+.btns{
+    background-color: #D9D9D9;
+width: 1230px;
+height: 465px;
+margin-top: 25px;
+margin-bottom: 80px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: center; /* Center the content vertically */
+align-items: center; /* Center horizontally */
+padding: 20px;
+overflow: hidden;
+position: relative; /* To manage positioning of children */
+ }
+
+
+ #paragraph5 {
+font-size: 20px;
+text-align: center; /* Center the text */
+margin-left: 0;
+margin-top: 0;
+flex: 1;
+overflow-wrap: break-word;
+word-wrap: break-word;
+white-space: normal;
+padding: 10px;
+margin-right: 700px;
+}
+
+
+.lineeee{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    width: 330px;
+    margin-left: -534px;
+}
+
+.lineeee::before, .lineeee::after {
+    content: "";
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 8px 3px;
+    flex: 1 1 0%;
+    border-bottom: 4px solid rgb(0, 0, 0);
+    margin: 0px 10px;
+    border-radius: 30%;
+}
+
+
+
+#paragraph5{     
+    line-height: 1.5;
+    flex: 1; /* Allow paragraph to take available space */
+    margin-left: 165px;
+   
+}
+
+
+
+
+.btns {
+    background-color: #D9D9D9;
+    width: 1230px;
+    height: 465px;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.btns button {
+    width: 200px;
+    height: 40px;
+    border-radius: 24px;
+}
+
+.btn {
+    margin-bottom: 30px;
+    margin-top: -152px;
+}
+
+.con-btn{
+  margin-left: 400px;
+  margin-top: -150px;
+
+}
+
+#button12 {
+    width: 100px;
+    height: 30px;
+    border-radius: 11px; 
+}
+
+#button13{
+    width: 100px;
+    height: 30px;
+    border-radius: 11px;
+
+}
+.button {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+  
+}
+
+
+
+
+
+
+
+

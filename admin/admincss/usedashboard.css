@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+    a {
+        color: black;         /* Set the color to black */
+        text-decoration: none; /* Remove the underline */
+    }
+
+/* menu  */
+.menu{
+    background-color:#E1D4C2;
+    max-width: 200px;
+    height: 610px;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border-radius: 28px;
+}
+
+.btn button{
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    
+}
+
+.con-btn{
+    margin-top: 125px;
+}
+
+#logout{
+    margin-top: 35px;
+    border-radius: 24px;
+}
+/* end */
+
+/* navigation */
+.searchIcon, .profileIcon {
+    height: 32px;
+    margin-left: 30px;
+}
+
+/* header */
+header {
+    background-color :#E1D4C2;
+    max-width: 80%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    margin-top: -635px;
+    z-index: 1000;
+    margin-left: 250px;
+    border-radius: 20px;    
+    height: 99px;
+}
+.container{
+    max-width: 1450px;
+    padding: 10px 13px;
+    margin: auto;
+}
+
+/* logo and brand */
+.logoBrand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-left: 80px;
+    margin-top: 10px;
+}
+.brandName {
+    color: var(--primary);
+    font-family: Italiana;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+/* navigation design */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-right: 100px;
+    padding-top: 15px;
+}
+a {
+    text-decoration: none;
+}
+.navList a {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+/* end */
+
+.user-info{
+    background-color: #FFFFFF;
+    width: 1080px;
+    height: 480px;
+    margin-top: 25px;
+    margin-left: 250px;
+    border-radius: 23px;
+    border-style: groove;
+}
+
+.user-info img {
+    margin-left: 75px;
+    margin-top: 25px;
+}
+
+.user-info p{
+    margin-left: 62px;
+    margin-top: 10px;
+}
+
+#changes{
+    width: 130px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    float: right;
+    margin-top: -110px;
+    margin-right: 20px;
+}
+
+
+   
+a {
+    color: black;         /* Set the color to black */
+    text-decoration: none; /* Remove the underline */
+}
+
+.inputs {
+    display: flex;
+    gap: 100px;
+    margin-left: 62px;
+    margin-top: 30px;
+}
+
+.inp {
+   margin-bottom: 30px;
+}
+
+
+ .inp input{
+      width: 425px;
+      height: 40px;
+      border-radius: 7px;
+     border-color: rgb(209, 201, 201);
+ }
+
+ .inp1 {
+    margin-bottom: 30px;
+ }
+
+ .inp1 input{
+    width: 425px;
+    height: 40px;
+    border-radius: 7px;
+    border-color: rgb(209, 201, 201);
+}
+
+i{
+    position: fixed;
+    margin-left: -25px;
+    margin-top: 10px;   
+}
+
+#image74{
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+
+
