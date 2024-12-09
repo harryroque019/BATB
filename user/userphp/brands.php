@@ -1,3 +1,11 @@
+<?php
+session_start();
+require '../../connection/connection.php';
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

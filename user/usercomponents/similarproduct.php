@@ -47,4 +47,5 @@
         </div>
     </section>
 </body>
+<script src="../../user/userjs/similarproduct.js"></script>
 </html>

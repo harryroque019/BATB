@@ -26,9 +26,13 @@ require '../../connection/connection.php';
                         <input type="text" placeholder="Search..">
                         <img src="/../allasset/searchIcon.png" class="searchIcon">
                     </div>
-                    <a href="../userphp/login.php"><img src="/../allasset/userIcon.png" class="profileIcon"></a>
-                    <a href="../userphp/cart.php"><img src="/../allasset/cartIcon.png" class="cartIcon"></a>
-                    <a href="../userphp/wishlist.php"><img src="/../allasset/wishlistBanner.png" class="wishlistIcon"></a>
+                    <?php if (isset($_SESSION['_id'])) { ?>
+                    <a href="../userphp/userDashboard.php"><img src="/../allasset/userIcon.png" class="profileIcon"></a>
+                    <?php } else { ?>
+                    <a href="../../user/userphp/login.php"><img src="/../allasset/userIcon.png" class="profileIcon"></a>
+                    <?php } ?>
+                    <a href="../../user/userphp/cartmodal.php"><img src="/../allasset/cartIcon.png" class="cartIcon"></a>
+                    <a href="../../user/userphp/wishlist.php"><img src="/../allasset/wishlistBanner.png" class="wishlistIcon"></a>
                 </div>
             </nav>
         </div>

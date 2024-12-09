@@ -1,8 +1,11 @@
 <?php
-session_start();
 require '../../connection/connection.php';
-$client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->BTBA->user;
+session_start();
+
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

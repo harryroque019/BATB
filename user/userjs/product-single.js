@@ -1,28 +1,5 @@
-let quantity = 1;
 
-document.querySelector('.decreasing-btn').addEventListener('click', () => {
-    if (quantity > 1) {
-        quantity--;
-        document.querySelector('.quantity-value').innerText = quantity;
-    }
-});
 
-document.querySelector('.adding-btn').addEventListener('click', () => {
-    quantity++;
-    document.querySelector('.quantity-value').innerText = quantity;
-});
-
-document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const item = {
-        name: 'Gentle Cleansing Oil',
-        description: 'The Gentle Cleansing Oil from Soul Apothecary is a luxurious oil-based cleanser that effortlessly dissolves makeup and impurities. Formulated with nourishing oils, it gently cleanses while moisturizing the skin, leaving it soft and refreshed. Ideal for all skin types, this cleansing oil provides a spa-like experience, effectively removing even waterproof makeup without stripping the skin’s natural barrier.',
-        price: 199,
-        image: 'images/product-items/facial-wash/facial-cleanser-2.png',
-        quantity: quantity
-        };
-        addItemToCart(item);
-        alert('Item added to cart!');
-});
 
 document.getElementById('buyNowBtn').addEventListener('click', () => {
     // Implement Buy Now functionality here

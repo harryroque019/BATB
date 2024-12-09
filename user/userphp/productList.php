@@ -1,5 +1,10 @@
 <?php
 require '../../connection/connection.php';
+session_start();
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
 
 $client = new MongoDB\Client;
 $collectionproducts = $client->BTBA->products;
@@ -80,5 +85,5 @@ $categories = $collectionproducts->distinct('productCategory');
 <?php include '../usercomponents/user-footer.php'; ?>
 
 </body>
-
+<script src="../userjs/productList.js"></script>
 </html>

@@ -11,47 +11,10 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logoBrand">
-                    <a href="../user/homePage.php"><img src="../imagesuser/svg/logoIcon.png" class="logoIcon"></a>
-                    <h1 class="brandName">BeautyandtheBest</h1>
-                </div>
-                <ul class="navList">
-                    <li><a href="../user/homePage.php">Home</a></li>
-                    <li><a href="../user/productList.php">Products</a></li>
-                    <li><a href="../user/brands.php">Brands</a></li>
-                </ul>
-                <div class="icons">
-                    <div class="search-container">
-                        <input type="text" placeholder="Search..">
-                        <img src="../imagesuser/svg/searchIcon.png" class="searchIcon">
-                    </div>
-                    <a href=""><img src="../imagesuser/svg/userIcon.png" class="profileIcon"></a>
-                    <a href="../user/cart.php"><img src="../imagesuser/svg/cartIcon.png" class="cartIcon"></a>
-                    <a href="../user/wishlist.php"><img src="../imagesuser/svg/wishlistBanner.png" class="wishlistIcon"></a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php include '../usercomponents/user-navigation.php'; ?>
 
     <section id="user-dashboard">
-        <div class="container">
-            <div class="menu">
-                <div class="con-btn">
-                    <div class="btn">
-                        <button><b>Profile</b></button>
-                    </div>
-                    <div class="btn">
-                        <button type="submit"><a href="../user/skinprofile.php"><b>Skin Profile</b></a></button>
-                    </div>
-                    <div class="btn">
-                        <button type="submit"><a href="../user/orders.php"><b>Orders</b></button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php include '../../user/usercomponents/profile-skin-orders.php'; ?>   
 
         <div class="container">
             <div class="user-info">

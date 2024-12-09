@@ -42,7 +42,7 @@ foreach ($products as $product) {
                 <img src="/allasset/starIcon2.png" class="starIcon1">
             </div>
             <div class="item-btn">
-                <form action="../../user/userphp/gentleCleansingOil.php" method="get">
+                <form action="../../user/userphp/productSingle.php" method="get">
                     <input type="hidden" name="product_id" value="<?= $product['_id'] ?>">
                     <button type="submit" class="view-more-btn"> 
                         View More

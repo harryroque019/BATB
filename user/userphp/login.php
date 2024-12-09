@@ -1,24 +1,19 @@
 <?php
+require '../../connection/connection.php';
 session_start();
-require __DIR__ . '/../../vendor/autoload.php';
-
-$client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->BTBA->user;
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
     if(filter_var($username, FILTER_VALIDATE_EMAIL)){
-        $user = $collection->findOne(['email' => $username]);
+        $user = $collectionuser->findOne(['email' => $username]);
     } else {
-        $user = $collection->findOne(['$or' => [['username' => $username], ['firstname' => $username], ['lastname' => $username]]]);
+        $user = $collectionuser->findOne(['$or' => [['username' => $username], ['firstname' => $username], ['lastname' => $username]]]);
     }
     
     if($user && password_verify($password, $user['password'])){
-        $_SESSION['firstname'] = $user['firstname'];
-        $_SESSION['lastname'] = $user['lastname'];
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['_id'] = $user['_id'];
         
         echo "<script>alert('Log in successfully'); window.location.href = '../userphp/homePage.php';</script>";
         exit();
