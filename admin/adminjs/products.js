@@ -3,14 +3,15 @@
         if (
             element.value === "Product Name:" ||
             element.value === "Product Price:" ||
-            element.value === "Category:" ||
+            element.value === "Product Category:" ||
             element.value === "Stock:" ||
-            element.value === "Size:" ||
-            element.value === "Type:" ||
-            element.value === "Skin Concern:" ||
+            element.value === "Size / Weight:" ||
+            element.value === "Product Type:" ||
+            element.value === "Skin Type:" ||
             element.value === "Benefits:" ||
             element.value === "Main Ingredients:" ||
-            element.value === "Ingredients:" ||
+            element.value === "Other Ingredients:" ||
+            element.value === "Shop Name:" ||
             element.value === "Describe your product.."
         ) {
             element.value = "";
@@ -27,21 +28,23 @@
             } else if (element.id === "productDescInput") {
                 element.value = "Describe your product..";
             }else if (element.id === "productCategoryInput") {
-                element.value = "Category:";
+                element.value = "Product Category:";
             }else if (element.id === "productStockInput") {
                 element.value = "Stock:";
             }else if (element.id === "productSizeInput") {
-                element.value = "Size:";
+                element.value = "Size / Weight:";
             }else if (element.id === "productTypeInput") {
-                element.value = "Type:";
+                element.value = "Product Type:";
             }else if (element.id === "productSkinInput") {
-                element.value = "Skin Concern:";
+                element.value = "Skin Type:";
             }else if (element.id === "productBenefitInput") {
                 element.value = "Benefits:";
             }else if (element.id === "productMainingInput") {
                 element.value = "Main Ingredients:";
             }else if (element.id === "productIngInput") {
-                element.value = "Ingredients:";
+                element.value = "Other Ingredients:";
+            }else if (element.id === "productShopNameInput") {
+                element.value = "Shop Name:";
             }
         }
     }

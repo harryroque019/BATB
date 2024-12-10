@@ -3,6 +3,7 @@ function openModal(button) {
     const productName = button.getAttribute('data-product-name');
     const productPrice = button.getAttribute('data-product-price');
     const productImage = button.getAttribute('data-product-image');
+    const productId = button.getAttribute('data-product-id');
 
     // Set product information in modal
     document.getElementById('product-info').innerHTML = `
@@ -15,11 +16,11 @@ function openModal(button) {
     document.getElementById('selectedProductName').value = productName;
     document.getElementById('selectedProductPrice').value = productPrice;
     document.getElementById('selectedProductImage').value = productImage;
+    document.getElementById('selectedProductId').value = productId;
 
     modal.style.display = 'block';
 }
 
-// Function to close the modal
 function closeModal() {
     document.getElementById('modal-container').style.display = 'none';
 }

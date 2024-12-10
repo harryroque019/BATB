@@ -49,12 +49,12 @@ $users = $collectionuser->find();
                 <h1>100</h1>
             </div>
     </div>
-        
+        <div class="search_user">
         <form method="GET">
             <input type="text" name="search" id="search" placeholder="Search by Firstname or Lastname" required>
             <button type="submit" name="search">Search</button>
         </form>
-
+        </div>
         <?php
         $searchQuery = $_GET['search'] ?? '';
         $filter = [];

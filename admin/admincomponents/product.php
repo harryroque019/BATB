@@ -19,9 +19,67 @@ foreach ($colected as $product) {
         $imageData[$product['productName']] = $product['image'];
     }
 }
+// Check if the required fields are set
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_Id'])) {
+    // Get the form data
+    $productId = $_POST['productId'];
+    $productName = $_POST['productName'] ?? '';
+    $productPrice = $_POST['productPrice'] ?? '';
+    $productCategory = $_POST['productCategory'] ?? '';
+    $productSize = $_POST['productSize'] ?? '';
+    $productType = $_POST['productType'] ?? '';
+    $productBenefit = $_POST['productBenefit'] ?? '';
+    $productSkin = $_POST['productSkin'] ?? '';
+    $productMaining = $_POST['productMaining'] ?? '';
+    $productIng = $_POST['productIng'] ?? '';
+    $productDesc = $_POST['productDesc'] ?? '';
+    $productShop = $_POST['productShop'] ?? '';
+    $productStock = $_POST['productStock'] ?? '';
 
+    // Prepare the data to be updated
+    $updateData = [
+        'productName' => $productName,
+        'productPrice' => $productPrice,
+        'productCategory' => $productCategory,
+        'productSize' => $productSize,
+        'productType' => $productType,
+        'productBenefit' => $productBenefit,
+        'productSkin' => $productSkin,
+        'productMaining' => $productMaining,
+        'productIng' => $productIng,
+        'productDesc' => $productDesc,
+        'productShop' => $productShop,
+        'productStock' => $productStock
+    ];
+
+    // MongoDB client and collection
+
+    try {
+        // Update the product in MongoDB
+        $result = $collectionproducts->updateOne(
+            ['_id' => new MongoDB\BSON\ObjectId($productId)],
+            ['$set' => $updateData]
+        );
+
+        if ($result->getModifiedCount() > 0) {
+            // If the product was updated, redirect or show a success message
+            echo 'Product updated successfully!';
+            // Redirect to another page or show a success message
+        } else {
+            // If no modification was made
+            echo 'No changes made to the product.';
+        }
+    } catch (Exception $e) {
+        // Handle any errors during the update process
+        echo 'Error updating product: ' . $e->getMessage();
+    }
+} else {
+    echo 'Invalid request.';
+}
 ?>
 <body>
+<div class="filter_plus_productlist">
+    <div class="filter_category">
     <label for="category">Filter by Category:</label>
     <select id="category" onchange="filterTableByCategory(this.value)">
         <option value="">All</option>
@@ -31,35 +89,24 @@ foreach ($colected as $product) {
             <option value="<?= htmlspecialchars($category); ?>"><?= htmlspecialchars($category); ?></option>
         <?php } ?>
     </select>
-
-    <script>
-        function filterTableByCategory(category) {
-            const tableRows = document.querySelectorAll('table tr');
-            tableRows.forEach((row, index) => {
-                if (index === 0) return;
-                const cellCategory = row.querySelector('td:nth-child(1)');
-                if (category === "" || cellCategory.textContent.trim() === category) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
-
+    </div>
+    <div class="product_list">
     <table>
         <tr>
-            <th>Product Category</th>
-            <th>Product Name</th>
-            <th>Image</th>
-            <th>Stocks</th>
-            <th>Sold</th>
-            <th>Price</th>
+            <th>PRODUCT CATEGORY</th>
+            <th>SHOP NAME</th>
+            <th>IMAGE</th>
+            <th>PRODUCT NAME</th>
+            <th>PRODUCT TYPE</th>
+            <th>SKIN TYPE</th>
+            <th>STOCKS</th>
+            <th>PRICE</th>
+            <th>ACTION</th>
         </tr>
         <?php foreach ($colected as $product) { ?>
-            <tr>
+            <tr data-id="<?= htmlspecialchars($product['_id']); ?>">
                 <td><?= htmlspecialchars($product['productCategory'] ?? ''); ?></td>
-                <td><?php echo isset($product['productName']) ? htmlspecialchars($product['productName']) : ''; ?></td>
+                <td><?= htmlspecialchars($product['productShop'] ?? ''); ?></td>
                 <td>
                     <?php if (isset($product['image']) && isset($imageData[$product['productName']])) { ?>
                         <img src="/../allasset/<?= htmlspecialchars($imageData[$product['productName']]); ?>" alt="" style="width: 100px; height: 100px; object-fit: cover;">
@@ -67,28 +114,96 @@ foreach ($colected as $product) {
                         <img src="" alt="" style="width: 100px; height: 100px; object-fit: cover;">
                     <?php } ?>
                 </td>
+                <td><?= htmlspecialchars($product['productName'] ?? ''); ?></td>
+                <td><?= htmlspecialchars($product['productType'] ?? ''); ?></td>
+                <td><?= htmlspecialchars($product['productSkin'] ?? ''); ?></td>
                 <td><?= htmlspecialchars($product['productStock'] ?? ''); ?></td>
-                <td><?= htmlspecialchars($product['sold'] ?? ''); ?></td>
                 <td><?= htmlspecialchars($product['productPrice'] ?? ''); ?></td>
+                <td class="td_button">
+                    <button class="updateBtn" onclick="openUpdateModal('<?= htmlspecialchars($product['_id']); ?>')">Update</button>
+                </td>
             </tr>
         <?php } ?>
     </table>
+    </div>
+</div>
 
-    <script>
-        function filterTableByCategory(category) {
-            const tableRows = document.querySelectorAll('table tr');
-            tableRows.forEach((row, index) => {
-                if (index === 0) return;
-                const cell = row.querySelector('td:first-child');
-                if (category === "" || cell.textContent.trim() === category) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
+<!-- Modal Structure -->
+<div id="updateModal" class="modal">
+    <div class="modal-content">
+        <h4>Update Product</h4>
+        <form id="updateForm" metho="post">
+    <input type="hidden" id="productId" name="productId">
+    
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName"><br><br>
+
+    <label for="productPrice">Product Price:</label>
+    <input type="text" id="productPrice" name="productPrice"><br><br>
+
+    <label for="productCategory">Product Category:</label>
+    <input type="text" id="productCategory" name="productCategory"><br><br>
+
+    <label for="productSize">Product Size:</label>
+    <input type="text" id="productSize" name="productSize"><br><br>
+
+    <label for="productType">Product Type:</label>
+    <input type="text" id="productType" name="productType"><br><br>
+
+    <label for="productBenefit">Skin:</label>
+    <input type="text" id="productBenefit" name="productBenefit"><br><br>
+
+    <label for="productSkin">Skin:</label>
+    <input type="text" id="productSkin" name="productSkin"><br><br>
+
+    <label for="productMaining">Main Ingredients:</label>
+    <input type="text" id="productMaining" name="productMaining"><br><br>
+
+    <label for="productIng">Other Ingredients:</label>
+    <input type="text" id="productIng" name="productIng"><br><br>
+
+    <label for="productDesc">Product Description:</label>
+    <input type="text" id="productDesc" name="productDesc"><br><br>
+
+    <label for="productShop">Shop:</label>
+    <input type="text" id="productShop" name="productShop"><br><br>
+
+    <label for="productStock">Product Stock:</label>
+    <input type="text" id="productStock" name="productStock"><br><br>
+
+    <!-- Add more fields as necessary -->
+
+    <button type="submit">Save Changes</button>
+</form>
+        <button onclick="closeUpdateModal()">Close</button>
+    </div>
+</div>
+
 </body>
+
+
+
+<style>
+/* Modal Styling */
+.modal {
+    display: none; /* Hide modal by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+</style>
 </html>
-
-

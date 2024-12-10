@@ -52,7 +52,7 @@ $categories = $collectionproducts->distinct('productCategory');
              
                 <div class="category-right-panel">
                         <div class="brand-1">
-                            <h1>Soul Apothecary</h1>
+                            <h1>Start your Skin Care Journey</h1>
                             <?php include '../usercomponents/productlist.php'; ?>
                 </div>
 

@@ -16,6 +16,7 @@ $product_Category = $product['productCategory'];
 $product_Stock = $product['productStock'];
 $product_Size = $product['productSize'];
 $product_Type = $product['productType'];
+$product_Shop = $product['productShop'];
 $product_Skin = $product['productSkin'];
 $product_Benefit = $product['productBenefit'];
 $product_Ing = $product['productIng'];
@@ -29,24 +30,27 @@ if (isset($_POST['addToCartBtn'])) {
     $quantity = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 1;
     $cart = array(
         'product_name' => $product_name,
-        'product_price' => (int)$product_Price * (int)$quantity,
+        'productprice' => $product_Price,
+        'product_total' => (int)$product_Price * (int)$quantity,
         'product_image' => $product_image,
         'user_id' => $currid,
         'product_id' => $product_id,
         'quantity' => $quantity
     );
     // Check if the user_id and product_id exist in the cart
-    $cartItem = $collectioncart->findOne(['user_id' => $currid, 'product_id' => $product_id]);
+    $cartItem = $collectioncart->findOne(['user_id' => $currid, 'product_id' => $product_id,]);
     if ($cartItem) {
+        $newTotal = (int)$cartItem['product_total'] + (int)$product_Price * (int)$quantity;
         $newQuantity = (int)$cartItem['quantity'] + (int)$quantity;
         $collectioncart->updateOne(
             ['user_id' => $currid, 'product_id' => $product_id],
-            ['$set' => ['quantity' => $newQuantity]]
+            ['$set' => ['quantity' => $newQuantity, 'product_total' => $newTotal]],
+
         );
     } else {
         $collectioncart->insertOne($cart);
     }
-    echo "<script>window.location.href='#'</script>";
+    echo "<script>alert('Successfully added to cart'); window.location.href='productlist.php'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -88,7 +92,7 @@ if (isset($_POST['addToCartBtn'])) {
                     <p><?php echo $product_Desc; ?></p>
                 </div>
                 <div class="stocks-content">
-                    <p><?php echo $product_Stock; ?></p>
+                    <p><b><em><?php echo $product_Stock; ?> Stock`s left</em></b></p>
                 </div>
             </div>
         
@@ -118,19 +122,16 @@ if (isset($_POST['addToCartBtn'])) {
             <div class="description">
                 <h1>Product Description</h1>
                 <p>
-                    <b>Product Name:</b> <?php echo $product_name; ?> <br><br>
-                    <b>Product Description:</b><?php echo $product_Desc; ?> <br><br>
-                    <b>Size:</b><?php echo $product_Size; ?> ml<br><br>
-                    <b>Type:</b><?php echo $product_Type; ?> <br><br>
-                    <b>Skin Type:</b><?php echo $product_Skin; ?><br><br>
-                    <b>Skin Concern:</b><?php echo $product_Type; ?><br><br>
-                    <b>Benefits:</b><?php echo $product_Benefit; ?> <br><br>
-                    • Low PH <br>
-                    • Gentle to the skin <br>
-                    • Non-drying formula <br>
-                    • Effortlessly removes dirt and impurities <br><br>
-                    <b>Main Ingredients:</b><?php echo $product_MainIng; ?> <br><br>
-                    <b>Ingredients:</b> <?php echo $product_Ing; ?>Camellia Sinensis Leaf Water, Potassium Cocoyl Glycinate, Glycerin, Morus Alba Root Extract, C12-14 Pareth-12, Peg-60 Hydrogenated Castor Oil, Ethylhexylglycerin, Rumex Occidentalis Extract, Trehalose, Allantoin, Portulaca Oleracea Extract, Ceramide 3, Aloe Barbadensis Leaf Extract, Cocos Nucifera Fruit Extract, Sodium PCA, Saccharide Isomerate, Glycyrrhiza Glabra Root Extract, EDTA 2NA.
+                    <b>Product Name: </b> <?php echo $product_name; ?> <br><br>
+                    <b>Product Shop: </b> <?php echo $product_Shop; ?> <br><br>
+                    <b>Product Description: </b><?php echo $product_Desc; ?> <br><br>
+                    <b>Size: </b><?php echo $product_Size; ?> <br><br>
+                    <b>Category: </b><?php echo $product_Category; ?> <br><br>
+                    <b>Skin Type: </b><?php echo $product_Skin; ?><br><br>
+                    <b>Type: </b><?php echo $product_Type; ?><br><br>
+                    <b>Benefits: </b><?php echo $product_Benefit; ?> <br><br>
+                    <b>Main Ingredients: </b><?php echo $product_MainIng; ?> <br><br>
+                    <b>Ingredients: </b> <?php echo $product_Ing; ?>
 
                 </p>
             </div>  
