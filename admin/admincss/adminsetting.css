@@ -83,6 +83,10 @@ a {
 .btn {
     margin-bottom: 40px;
     padding-bottom: 10px;
+    text-decoration: none;
+}
+.side-bar {
+    text-decoration: none;
 }
 
 .btn button {
@@ -192,7 +196,7 @@ button p {
     margin-top: 10px;
     border-radius: 10px;
     align-content: center;
-}
+}   
 
 .updateform {
     display: flex;

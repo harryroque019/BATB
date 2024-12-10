@@ -3,39 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/usercss/aboutUs-1.css">
+    <link rel="stylesheet" href="../../user/usercss/aboutUs-1.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&display=swap" rel="stylesheet">
     <title>aboutUs</title>
 </head>
 <body>
     
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logoBrand">
-                    <a href="/user/homePage.php"><img src="/imagesuser/svg/logoIcon.png" class="logoIcon"></a>
-                    <h1 class="brandName">BeautyandtheBest</h1>
-                </div>
-                <ul class="navList">
-                    <li><a href="/user/homePage.php">Home</a></li>
-                    <li><a href="/user/productList.php">Products</a></li>
-                    <li><a href="/user/brands.php">Brands</a></li>
-                </ul>
-                <div class="icons">
-                    <div class="search-container">
-                        <input type="text" placeholder="Search..">
-                        <img src="/imagesuser/svg/searchIcon.png" class="searchIcon">
-                    </div>
-                    <a href="/user/login.php"><img src="/imagesuser/svg/userIcon.png" class="profileIcon"></a>
-                    <a href="/user/cart.php"><img src="/imagesuser/svg/cartIcon.png" class="cartIcon"></a>
-                    <a href="/user/wishlist.php"><img src="/imagesuser/svg/wishlistBanner.png" class="wishlistIcon"></a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php include '../usercomponents/user-navigation.php'; ?>
 
     <div class="image-banner">
-        <img src="/imagesuser/banner/aboutUs1.png" alt="">
+        <img src="../../allasset/aboutUs1.png" alt="">
     </div>
 
     <div class="two-buttons">
@@ -51,13 +28,13 @@
             </p>
         </div>
         <div class="image-container-1">
-            <img src="/imagesuser/banner/aboutUs1.png" alt="">
+            <img src="../../allasset/aboutUs1.png" alt="">
         </div>
     </section>
     
     <section id="information-2">
         <div class="image-container-2">
-            <img src="/imagesuser/banner/aboutUs1.png" alt="">
+            <img src="../../allasset/aboutUs1.png" alt="">
         </div>
         <div class="info-container-2">
             <p>

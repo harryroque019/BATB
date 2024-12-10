@@ -105,6 +105,8 @@ nav {
     border: none;
     background: none; 
     gap: 25px;  
+  border: 2px solid red;
+
 }
 
 button p{

@@ -146,16 +146,16 @@ if (isset($_POST['addToCartBtn'])) {
                 <div class="users-review">
                     <div class="user-info-container">
                         <div class="user-info-content">
-                            <img src="/imagesuser/svg/profileIcon.png" alt="">
+                            <img src="../../allasset/profileIcon.png" alt="">
                             <h3>Username</h3>
                         </div>
                     </div>
                     <div class="review-content">
                         <div class="review-rate">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon2.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon2.png">
                         </div>
                     </div>
                     <div class="posted-review">
@@ -166,16 +166,16 @@ if (isset($_POST['addToCartBtn'])) {
                 <div class="users-review">
                     <div class="user-info-container">
                         <div class="user-info-content">
-                            <img src="/imagesuser/svg/profileIcon.png" alt="">
+                            <img src="../../allasset/profileIcon.png" alt="">
                             <h3>Username</h3>
                         </div>
                     </div>
                     <div class="review-content">
                         <div class="review-rate">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon2.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon2.png">
                         </div>
                     </div>
                     <div class="posted-review">

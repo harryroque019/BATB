@@ -1,3 +1,18 @@
+<?php
+require '../../connection/connection.php';
+session_start();
+
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: ../userphp/login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +35,7 @@
             <div class="user-info">
                 <div class="account-header">
                     <h1>Profile Information</h1>
-                    <button>Logout</button>
+                    <a href="?logout=true"><button>Logout</button></a>
                 </div>                
                 <div class="inputs">
                     <div class="input">
@@ -133,3 +148,4 @@
     </script>
 </body>
 </html>
+

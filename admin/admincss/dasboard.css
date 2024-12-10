@@ -70,7 +70,7 @@ header {
 /* navigation design */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     position: relative;
 }
@@ -89,7 +89,9 @@ nav {
     flex-direction: column;
     background-color:rgb(241, 233, 216);
     max-width: 210px;
-    height: 649.40px;
+    height: 100vh;
+    top: 0;
+    position: sticky;
     margin-top: -100px;
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
@@ -97,6 +99,7 @@ nav {
 .btn {
   margin-bottom: 40px;
   padding-bottom: 10px;
+
 }
 
 .btn button {
@@ -107,12 +110,12 @@ nav {
     gap: 25px;  
 }
 
-button p{
+button p { 
     font-size: 20px;
 }
-
-.section{
-    margin-top: 100px;
+.section {
+    position: absolute;
+    top: 10rem;
 }
 
 /* Nav button hover effect */
@@ -129,7 +132,6 @@ button p{
     bottom: 0;
     left: 0;
     transition: width 0.3s;
-   
 }
 
 .nav-btn:hover::after {
@@ -156,12 +158,13 @@ button p{
 }
 
 .boxes{
-    display: flex;
+    display: grid;
     margin-left: 40px;
     margin-right: 40px;
-    gap: 25px;
-   
+    gap: 25px;      
+    grid-template-columns: repeat(3, 1fr);
 }
+
 
 
 .box{
@@ -170,8 +173,8 @@ button p{
    height: 150px;
    margin-top: 40px;
    border: 2px solid black; /* Adds a 2px solid black border */
-  border-radius: 23px;
-  padding: 10px 10px;
+   border-radius: 23px;
+   padding: 10px 10px;
 }
 
 .box h1{
@@ -189,24 +192,30 @@ button p{
 
 .search_user{
     margin-top: 50px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
-/* user data */
-
-
-/* User data container styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Inter, sans-serif;
+.search_user input {
+    padding: 16px;
+    width: 16%;
+    border-radius: 50px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    font-size: 15px;
 }
-
-body {
-    background-color: #F0F1F3;
+.search-btn {
+    all: unset;
+    padding: 16px;
+    width: 5%;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #06D210;
+    color: white;
+    border: none;
+    font-size: 15px;
 }
-
 /* icon logo */
 .icons {
     width: 30vw;
@@ -243,7 +252,6 @@ header {
 }
 
 .container {
-    max-width: 1450px;
     padding: 10px 13px;
     margin: auto;
 }
@@ -278,17 +286,11 @@ a {
 }
 
 /* end */
-
-
-
-
-
 .user-info{
     max-width: 100%;
     height: 1000px;
-    position: relative;
-    margin-top: -540px;
     margin-left: 213px;
+    top: -280px;
 }
 
 .boxes{
@@ -296,7 +298,7 @@ a {
     margin-left: 40px;
     margin-right: 40px;
     gap: 25px;
-   
+    flex-direction: row;
 }
 
 
@@ -306,8 +308,8 @@ a {
    height: 150px;
    margin-top: 40px;
    border: 2px solid black; /* Adds a 2px solid black border */
-  border-radius: 23px;
-  padding: 10px 10px;
+   border-radius: 23px;
+   padding: 10px 10px;
 }
 
 .box h1{

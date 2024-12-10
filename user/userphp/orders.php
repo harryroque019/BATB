@@ -1,3 +1,46 @@
+<?php
+require '../../connection/connection.php';
+session_start();
+
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
+
+$client = new MongoDB\Client;
+$collectionorder = $client->BTBA->order;
+
+// Fetch orders for the logged-in user
+$userId = $_SESSION['_id'] ?? null;
+$currentOrders = [];
+if ($userId) {
+    $currentOrders = array_map(function ($currOr) {
+        $currOr['quantity'] = (int) ($currOr['quantity'] ?? 0); // Ensure quantity is an integer
+        $currOr['total_price'] = (int) ($currOr['total_price'] ?? 0); // Ensure total_price is an integer
+        return $currOr; // Return processed order
+    }, iterator_to_array($collectionorder->find([
+        'user_id' => $userId, // Match logged-in user's ID
+        'status' => [
+            '$in' => ['To Pay', 'To Ship', 'To Receive'] // Match any of the specified statuses
+        ]
+    ])));
+}
+// Fetch only orders with status 'Received'
+if ($userId) {
+    $receive = array_map(function ($order) {
+        $order['quantity'] = (int) ($order['quantity'] ?? 0); // Ensure quantity is an integer
+        $order['total_price'] = (int) ($order['total_price'] ?? 0); // Ensure total_price is an integer
+        return $order; // Return processed order
+    }, iterator_to_array($collectionorder->find([
+        'user_id' => $userId, // Match logged-in user's ID
+        'status' => 'Received' // Filter by order status 'Received'
+    ])));
+}
+
+// Debugging: Uncomment to check the fetched data
+// echo '<pre>', print_r($receive, true), '</pre>';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +48,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../user/usercss/orders.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&display=swap" rel="stylesheet">
-    <title>orders</title>
+    <title>Orders</title>
 </head>
 <body>
-
     <?php include '../../user/usercomponents/user-navigation.php'; ?>
     <section id="orders-section">
-    <?php include '../../user/usercomponents/profile-skin-orders.php'; ?>
+        <?php include '../../user/usercomponents/profile-skin-orders.php'; ?>
 
         <div class="container">
             <div class="user-container">
-                <div class="user-info"> 
+                <div class="user-info">
+                    <!-- Received Orders -->
                     <div class="recent-order">
-                        <h1>Your Recent Orders</h1>
+                        <h1>Recent Orders</h1>
                         <div class="recent-order-container">
                             <div class="recent-order-header">
                                 <p>Product</p>
@@ -27,45 +70,25 @@
                                 <p>Payment</p>
                                 <p>Order Status</p>
                             </div>
-                            <button class="recent-order-content">
-                                <img src="/imagesuser/product-items/facial-wash/facial-cleanser-1.png" alt="">
-                                <h3>Gentle Brightening Cleanser</h3>
-                                <h3>1</h3>
-                                <h3>₱ 199</h3>
-                                <h3>PayPal</h3>
-                                <h3>To Ship</h3>
-                            </button>
-                            <button class="recent-order-content">
-                                <img src="/imagesuser/product-items/facial-wash/facial-cleanser-1.png" alt="">
-                                <h3>Gentle Brightening Cleanser</h3>
-                                <h3>1</h3>
-                                <h3>₱ 199</h3>
-                                <h3>COD</h3>
-                                <h3>To Receive</h3>
-                            </button>
-                            <div class="line"></div>
-                        </div>
-                        <!-- Modal for Posting a Review -->
-                        <div class="review-modal-container">
-                            <div class="review-modal-content">
-                                <div class="modal-header">
-                                    <h1>Post a Review</h1>
-                                    <span class="review-close">&times;</span>
-                                </div>
-                                <div class="inputs">
-                                    <div class="input">
-                                        <div class="inp1">
-                                            <h2>Write us</h2>
-                                            <textarea id="reviewText" name="reviewText"required placeholder="Write your review here.."></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="review-save-btn" type="submit">Post Review</button>
-                            </div>
+                            <?php if (!empty($currentOrders)) { ?>
+    <?php foreach ($currentOrders as $order) { ?>
+        <button class="recent-order-content">
+            <img src="../../allasset/<?php echo htmlspecialchars($currOr['product_image'] ?? 'default-image.png'); ?>" alt="Product Image">
+            <h3><?php echo htmlspecialchars($order['product_name'] ?? 'Unknown Product'); ?></h3>
+            <h3><?php echo htmlspecialchars($order['quantity'] ?? 0); ?></h3>
+            <h3>₱ <?php echo number_format($order['total_price'], 2); ?></h3>
+            <h3><?php echo htmlspecialchars($order['payment_method'] ?? 'Unknown'); ?></h3>
+            <h3><?php echo htmlspecialchars($order['status'] ?? ''); ?></h3>
+        </button>
+        <div class="line"></div>
+    <?php } ?>
+<?php } else { ?>
+    <p>No current orders found.</p>
+<?php } ?>
                         </div>
                     </div>
 
-
+                    <!-- Order History -->
                     <div class="account-header">
                         <h1>Order History</h1>
                     </div>           
@@ -78,29 +101,28 @@
                             <p>Payment</p>
                             <p>Order Status</p>
                         </div>
-                    </div>
+                        <?php if (!empty($receive)) { ?>
+    <?php foreach ($receive as $currOr) { ?>
+        <button class="recent-order-content">
+            <img src="../../allasset/<?php echo htmlspecialchars($currOr['product_image'] ?? 'default-image.png'); ?>" alt="Product Image">
+            <h3><?php echo htmlspecialchars($currOr['product_name'] ?? 'Unknown Product'); ?></h3>
+            <h3><?php echo htmlspecialchars($currOr['quantity'] ?? 0); ?></h3>
+            <h3>₱ <?php echo number_format($currOr['total_price'], 2); ?></h3>
+            <h3><?php echo htmlspecialchars($currOr['payment_method'] ?? 'Unknown'); ?></h3>
+            <h3><?php echo htmlspecialchars($currOr['order_status'] ?? ''); ?></h3>
+        </button>
+        <div class="line"></div>
+    <?php } ?>
+<?php } else { ?>
+    <p>No current orders found.</p>
+<?php } ?>
 
-                    <div class="review-header">
-                        <h1>Write a review</h1>
                     </div>
-
-                    <div class="review-container">
-                        <div class="review-content">
-                            <div class="text-content">
-                                <h1>Product Name</h1>
-                                <p>Review Details</p>
-                                <textarea placeholder="What do you think of our product? Write here."></textarea>
-                            </div>
-                            <div class="image-content">
-                                <img src="/imagesuser/product-items/facial-wash/facial-cleanser-1.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-               </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <script>
         const reviewModal = document.querySelector(".review-modal-container");
         const reviewSpan = document.querySelector(".review-close");
@@ -111,19 +133,16 @@
             document.body.classList.add('review-no-scroll');
         }
 
-        // Close review modal function
         function closeReviewModal() {
             reviewModal.style.display = 'none';
             document.body.classList.remove('review-no-scroll');
         }
 
-        // Ensure review modal is hidden initially
         window.addEventListener("load", () => {
             reviewModal.style.display = "none";
             document.body.classList.remove("review-no-scroll");
         });
 
-        // Close review modal when clicking on close button or outside the modal
         reviewSpan.addEventListener('click', closeReviewModal);
         window.addEventListener('click', (event) => {
             if (event.target === reviewModal) {
@@ -131,7 +150,6 @@
             }
         });
 
-        // Handle review submission
         reviewSaveBtn.addEventListener('click', (event) => {
             event.preventDefault();
             const reviewText = document.getElementById('reviewText').value;
@@ -144,11 +162,9 @@
             }
         });
 
-        // Adding functionality for "Post Review" buttons in recent orders
         document.querySelectorAll('.recent-order-content').forEach(button => {
             button.addEventListener('click', openReviewModal);
         });
     </script>
-
 </body>
 </html>

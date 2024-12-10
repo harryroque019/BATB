@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'product_price' => $productPrice,
             'product_image' => $productImage,
             'product_id' => $id,
+            'quantity' =>$quantity,
             'total_price' => $productPrice * $quantity
         ];
 

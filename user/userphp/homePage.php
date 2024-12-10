@@ -1,11 +1,6 @@
 <?php
 require '../../connection/connection.php';
 session_start();
-
-if (!isset($_SESSION['_id'])) {
-    header("Location: ../userphp/login.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,7 +136,7 @@ if (!isset($_SESSION['_id'])) {
             <div class="content">
                 <h1 class="title">A right solution for the right product</h1>
                 <p class="subtitle">Don’t have an idea or enough knowledge about the product you have your eye on? Don’t worry, we’ve got your back, our dear BaTB customers! Our team is here to provide you with all the information and support you need to make an informed decision. </p>
-                <a href="/user/moreInformation.php"><button class="btn-primary">
+                <a href="../../user/userphp/moreInformation.php"><button class="btn-primary">
                     FOR MORE INFO
                     <span class="btn-primary-background">
                         <img src="../../allasset/arrowIcon.png" class="arrowIcon">
@@ -159,7 +154,7 @@ if (!isset($_SESSION['_id'])) {
                     <p class="subtitle">At BeautyandtheBest, we prioritize your skincare journey by providing clear and detailed information about our products and their ingredients. We focus on educating our customers about active ingredients like niacinamide and salicylic acid, ensuring you understand their benefits and safe usage.<br><br>
                     Our mission is to simplify your shopping experience, eliminate ingredient confusion, and build trust in our products. Offering comprehensive product details and demonstrations, we aim to enhance your satisfaction and encourage repeat purchases. Join us in discovering skincare that empowers you to look and feel your best.</p>
                     <div class="buttonContent">
-                        <a href="/user/aboutUs-1.php"><button class="btn-secondary">ABOUT US</button></a>
+                        <a href="../../user/userphp/aboutUs-1.php"><button class="btn-secondary">ABOUT US</button></a>
                     </div>
                 </div>
                 <img src="../../allasset/aboutUs1.png" class="aboutUsTrial">

@@ -1,3 +1,19 @@
+<?php
+session_start();
+require '../../connection/connection.php';
+
+if (!isset($_SESSION['_id'])) {
+    header("Location: ../userphp/login.php");
+    exit;
+}
+
+$client = new MongoDB\Client;
+$collectionproduct = $client->BTBA->products;
+
+// Fetch all products
+$products = $collectionproduct->find();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +25,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logoBrand">
-                    <a href="../user/homePage.php"><img src="../imagesuser/svg/logoIcon.png" class="logoIcon"></a>
-                    <h1 class="brandName">BeautyandtheBest</h1>
-                </div>
-                <ul class="navList">
-                    <li><a href="../user/homePage.php">Home</a></li>
-                    <li><a href="../user/productList.php">Products</a></li>
-                    <li><a href="../user/brands.php">Brands</a></li>
-                    <li><a href="../user/homePage.php">Home</a></li>
-                    <li><a href="../user/productList.php">Products</a></li>
-                    <li><a href="../user/brands.php">Brands</a></li>
-                </ul>
-                <div class="icons">
-                    <div class="search-container">
-                        <input type="text" placeholder="Search..">
-                        <img src="../imagesuser/svg/searchIcon.png" class="searchIcon">
-                    </div>
-                    <a href="../user/login.php"><img src="../imagesuser/svg/userIcon.png" class="profileIcon"></a>
-                    <a href="../user/cart.php"><img src="../imagesuser/svg/cartIcon.png" class="cartIcon"></a>
-                    <a href="../user/wishlist.php"><img src="../imagesuser/svg/wishlistBanner.png" class="wishlistIcon"></a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php include '../usercomponents/user-navigation.php'; ?>
 
     <section id="wishlist-section">
         <div class="container">
@@ -44,63 +34,33 @@
                 <h1>Wishlist</h1>
             </div>
             <div class="wishlist-container">
+                <?php foreach ($products as $product) { ?>
                 <div class="wishlist-content">
                     <div class="left-panel">
-                        <img src="../imagesuser/product-items/facial-wash/facial-cleanser-1.png" alt="">
+                        <img src="../../allasset/<?php echo htmlspecialchars($product['image']); ?>" alt="">
                         <div class="product-info">
-                            <h2 class="product-name">Product Name</h2>
-                            <h2 class="product-price">₱100</h2>
-                            <img src="../imagesuser/svg/wishlistIconFill.png" alt="" class="wishlistIconFill">
+                            <h2 class="product-name"><?php echo htmlspecialchars($product['productName']); ?></h2>
+                            
+                            <img src="../../allasset/wishlistIconFill.png" alt="" class="wishlistIconFill">
                             <div class="stars">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon2.png" class="starIcon1">
+                                <img src="../../allasset/starIcon1.png" class="starIcon1">
+                                <img src="../../allasset/starIcon1.png" class="starIcon1">
+                                <img src="../../allasset/starIcon1.png" class="starIcon1">
+                                <img src="../../allasset/starIcon2.png" class="starIcon1">
                             </div>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="btn-container">
-                            <button class="buy-btn">Add to Cart</button>
-                            <button class="cart-btn">Remove</button>
+                            <button class="buy-btn">Add to Wishlist</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="wishlist-content">
-                    <div class="left-panel">
-                        <img src="../imagesuser/product-items/facial-wash/facial-cleanser-1.png" alt="">
-                        <div class="product-info">
-                            <h2 class="product-name">Product Name</h2>
-                            <h2 class="product-price">₱100</h2>
-                            <img src="../imagesuser/svg/wishlistIconFill.png" alt="" class="wishlistIconFill">
-                            <div class="stars">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon1.png" class="starIcon1">
-                                <img src="../imagesuser/svg/starIcon2.png" class="starIcon1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-panel">
-                        <div class="btn-container">
-                            <button class="buy-btn">Add to Cart</button>
-                            <button class="cart-btn">Remove</button>
-                        </div>
-                    </div>
-                </div>
-
-            
+                <?php } ?>
             </div>
-
-            
-            
         </div>
     </section>
-
-
-    
+    <?php include '../usercomponents/user-footer.php'; ?>
 </body>
 </html>
-
 

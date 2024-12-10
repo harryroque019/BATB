@@ -27,23 +27,23 @@ require '../../connection/connection.php';
 <div class="menu">
     <div class="section">
         <div class="btn nav-btn">
-         <a href="/../../admin/adminphp/dashboard.php">
+         <a href="/../../admin/adminphp/dashboard.php" class="side-bar" >
             <button type="submit">
-                <img src="/../allasset/dashboardIcon.png" class="image" style="width: 30px; height: 30px;">
+                <img src="/../allasset/dashboardIcon.png" class="image" style="width: 30px; height: 30px; ">
                 <p>Dashboard</p>
             </button>
          </a>
         </div>
-        <a  href="/../../admin/adminphp/products.php" class="side-bar" text=>
+        <a  href="/../../admin/adminphp/products.php" class="side-bar" >
         <div class="btn nav-btn">
             <button type="submit">
                 <img src="/../allasset/productsIcon.png" class="image" style="width: 30px; height: 30px;">
                 <p>Products</p>
             </button>
-        </a>
+        </a>    
         </div>
         <div class="btn nav-btn">
-            <a href="/../../admin/adminphp/orders.php">
+            <a href="/../../admin/adminphp/orders.php" class="side-bar" >
                 <button type="submit">
                     <img src="/../allasset/orderIcon.png" class="image" style="width: 30px; height: 30px;">
                     <p>Orders</p>

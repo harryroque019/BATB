@@ -13,7 +13,7 @@
                 <div class="recommended-items">
                     <div class="recommended-item-1">
                         <div class="recommended-product-image">
-                            <img src="/imagesuser/product-items/facial-wash/facial-cleanser-1.png">
+                            <img src="../../allasset/facial-cleanser-1.png">
                         </div>
                         <div class="recommended-product-item-name">
                             <p class="recommended-item-name">Radiance Boost Serum</p>
@@ -23,17 +23,17 @@
                         </div>
                         
                         <div class="recommended-rate">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon1.png">
-                            <img src="/imagesuser/svg/starIcon2.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon1.png">
+                            <img src="../../allasset/starIcon2.png">
                         </div>
                         
                         <div class="item-btn">
                             <button class="view-more-btn"> 
                                 See More
                                 <span class="btn-background">
-                                    <img src="/imagesuser/svg/arrowIcon.png" class="arrowIcon">
+                                    <img src="../../allasset/arrowIcon.png" class="arrowIcon">
                                 </span>
                             </button>
                         </div>

@@ -38,7 +38,7 @@ $users = $collectionuser->find();
         <div class="boxes">
             <div class="box">
                 <h2>Registered <br>User</h2>
-                <h1>100</h1>
+                <h1>100</h1> 
             </div>
             <div class="box">
                 <h2>Registered <br>User</h2>
@@ -52,7 +52,7 @@ $users = $collectionuser->find();
         <div class="search_user">
         <form method="GET">
             <input type="text" name="search" id="search" placeholder="Search by Firstname or Lastname" required>
-            <button type="submit" name="search">Search</button>
+            <button class="search-btn" type="submit" name="search">Search</button>
         </form>
         </div>
         <?php

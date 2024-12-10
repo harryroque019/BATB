@@ -3,43 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/usercss/moreInformation.css">
+    <link rel="stylesheet" href="../../user/usercss/moreInformation.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&display=swap" rel="stylesheet">
     <title>moreInformation</title>
 </head>
 <body>
     
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logoBrand">
-                    <a href="/user/homePage.php"><img src="/imagesuser/svg/logoIcon.png" class="logoIcon"></a>
-                    <h1 class="brandName">BeautyandtheBest</h1>
-                </div>
-                <ul class="navList">
-                    <li><a href="/user/homePage.php">Home</a></li>
-                    <li><a href="/user/productList.php">Products</a></li>
-                    <li><a href="/user/brands.php">Brands</a></li>
-                </ul>
-                <div class="icons">
-                    <div class="search-container">
-                        <input type="text" placeholder="Search..">
-                        <img src="/imagesuser/svg/searchIcon.png" class="searchIcon">
-                    </div>
-                    <a href="/user/login.php"><img src="/imagesuser/svg/userIcon.png" class="profileIcon"></a>
-                    <a href="/user/cart.php"><img src="/imagesuser/svg/cartIcon.png" class="cartIcon"></a>
-                    <a href="/user/wishlist.php"><img src="/imagesuser/svg/wishlistBanner.png" class="wishlistIcon"></a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php include '../usercomponents/user-navigation.php'; ?>
 
     <section id="active-ingredients">
         <div class="container">
             <div class="ingredients-container">
                 <div class="ingredients-content-1">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-1.png" alt="">
+                        <img src="../../allasset/image-1.png" alt="">
                     </div>
                     <div class="container-content">
                         <div class="text-container">
@@ -51,7 +28,7 @@
 
                 <div class="ingredients-content-2">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-2.png" alt="">
+                        <img src="../../allasset/image-2.png" alt="">
                     </div>
                     <div class="container-content-2">
                         <h1>Niacinamide</h1>
@@ -61,7 +38,7 @@
 
                 <div class="ingredients-content-1">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-3.png" alt="">
+                        <img src="../../allasset/image-3.png" alt="">
                     </div>
                     <div class="container-content">
                         <div class="text-container">
@@ -73,7 +50,7 @@
 
                 <div class="ingredients-content-2">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-4.png" alt="">
+                        <img src="../../allasset/image-4.png" alt="">
                     </div>
                     <div class="container-content-2">
                         <h1>Hyaluronic Acid</h1>
@@ -83,7 +60,7 @@
 
                 <div class="ingredients-content-1">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-5.png" alt="">
+                        <img src="../../allasset/image-5.png" alt="">
                     </div>
                     <div class="container-content">
                         <div class="text-container">
@@ -95,7 +72,7 @@
 
                 <div class="ingredients-content-2">
                     <div class="circle">
-                        <img src="/imagesuser/banner/image-6.png" alt="">
+                        <img src="../../allasset/image-6.png" alt="">
                     </div>
                     <div class="container-content-2">
                         <h1>Salicylic Acid</h1>
@@ -115,7 +92,7 @@
                 <div class="title-content">
                     <h1>TYPES OF MOISTURIZERS</h1>
                     <p>Find Your Perfect Match: <br>Hydration Solutions for Every <br>Skin Type</p>
-                    <img src="/imagesuser/svg/arrowDownIcon.png" alt="">
+                    <img src="../../allasset/arrowDownIcon.png" alt="">
                 </div>
 
                 <div class="moisturizer-1 humectant">
@@ -141,7 +118,7 @@
             <div class="section-content">
                 <div class="skin-problem-container">
                     <div class="image-container">
-                        <img src="/imagesuser/svg/arrowDownIcon.png" alt="">
+                        <img src="../../allasset/arrowDownIcon.png" alt="">
                         <div class="title-content skin-problem">
                             <h1>CONSIDER THE STEPS BELOW ON HOW TO AVOID OR LESSEN ACNE AND PIMPLES</h1>         
                         </div>
@@ -201,7 +178,7 @@
                 <div class="title-container">
                     <div class="sunscreen-title">
                         <h1>DO YOU KNOW THAT THERE ARE TYPES OF SUNCREENS?</h1>
-                        <img src="/imagesuser/svg/curlyArrowIcon.png" alt="">
+                        <img src="../../allasset/curlyArrowIcon.png" alt="">
                     </div>
                 </div>
                 <div class="sunscreen-container-mineral">
@@ -211,7 +188,7 @@
                         </div>
                         <p>A mineral sunscreen, also known as a physical sunscreen, is a type of sun protection product that uses natural mineral ingredients, primarily zinc oxide and/or titanium dioxide, to shield the skin from the sun's harmful ultraviolet (UV) rays. Unlike chemical sunscreens, which absorb UV radiation and convert it into heat, mineral sunscreens work by sitting on top of the skin and physically blocking and reflecting UV rays away from the skin.</p>
                     </div>
-                    <img src="/imagesuser/svg/curlyArrowIcon2.png" alt="">
+                    <img src="../../allasset/curlyArrowIcon2.png" alt="">
                 </div>
                 <div class="sunscreen-container-chemical">
                     <div class="sunscreen-content chemical">
@@ -220,7 +197,7 @@
                         </div>
                         <p>Chemical sunscreens contain organic (carbon-based) compounds that absorb UV radiation. These compounds typically include ingredients like avobenzone, octisalate, octocrylene, and oxybenzone. When applied to the skin, these ingredients absorb UV rays and convert them into heat, which is then released from the skin. Chemical sunscreens are often lightweight and can be more easily absorbed into the skin, making them a popular choice for daily wear. </p>
                     </div>
-                    <img src="/imagesuser/svg/curlyArrowIcon2.png" alt="">
+                    <img src="../../allasset/curlyArrowIcon2.png" alt="">
                 </div>
                 <div class="sunscreen-container-hybrid">
                     <div class="sunscreen-content hybrid">
@@ -233,6 +210,6 @@
             </div>
         </div>
     </section>
-
+<?php include '../../user/usercomponents/user-footer.php'; ?>
 </body>
 </html>
