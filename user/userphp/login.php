@@ -70,12 +70,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                   </div>
                 
                   <div class="continue-with-google"> 
-                    <button type="submit" class="google-btn">
-                        <img src="../imagesuser/svg/googleIcon.png" alt="" class="google-icon">
+                    <button type="" class="google-btn">
+                        <img src="../../allasset/googleIcon.png" alt="" class="google-icon">
                         Continue with Google
                     </button>
                 </div>
-                <p class="need">Need an account?<a href="../user/register.php"> Sign up here.</a></p>
+                <p class="need">Need an account?<a href="../../user/userphp/register.php"> Sign up here.</a></p>
             </form>
         </div>  
     </div>

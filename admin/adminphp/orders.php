@@ -26,10 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Update the status in the database for the given orderId
         $result = $collectionorder->updateOne(
-            ['_id' => $orderId], 
-            ['$set' => [
-                'status' => $status
-            ]]
+            ['_id' => $orderId],
+            [
+                '$set' => [
+                    'status' => $status
+                ]
+            ]
         );
 
         // Log the result of the update
@@ -52,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/../admin/admincss/orders.css">
     <title>Orders</title>
 </head>
+
 <body>
     <?php include '../../admin/admincomponents/admin-nav-side.php'; ?>
 
@@ -76,72 +80,100 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <th>Action</th>
                     </tr>
                     <?php foreach ($collectionorder->find([]) as $order) { ?>
-                    <tr>
-                        <td><img src="../../allasset/<?php echo htmlspecialchars($order['product_image'] ?? '') ?>" alt=""><p><?php echo htmlspecialchars($order['product_name'] ?? '') ?></p></td>
-                        <td><?php echo $order['product_id'] ?? '' ?></td>
-                        <td>₱<?php echo $order['product_price'] ?? '' ?></td>
-                        <td><?php echo $order['user_name'] ?? '' ?></td>
-                        <td><?php echo $order['payment_method'] ?? '' ?></td>
-                        <td class="status"><button class="btn1"><?php echo $order['status'] ?? '' ?></button></td>
-                        <td>
-                            <button class="editBtn btn btn-primary" data-id="<?php echo $order['_id'] ?? ''; ?>" data-status="<?php echo $order['status'] ?? ''; ?>" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button> 
-                            <button class="delete btn btn-danger" data-id="<?php echo $order['_id'] ?? ''; ?>">Delete</button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img src="../../allasset/<?php echo htmlspecialchars($order['product_image'] ?? '') ?>"
+                                    alt="">
+                                <p><?php echo htmlspecialchars($order['product_name'] ?? '') ?></p>
+                            </td>
+                            <td><?php echo $order['product_id'] ?? '' ?></td>
+                            <td>₱<?php echo $order['product_price'] ?? '' ?></td>
+                            <td><?php echo $order['user_name'] ?? '' ?></td>
+                            <td><?php echo $order['payment_method'] ?? '' ?></td>
+                            <td class="status"><button class="btn1"><?php echo $order['status'] ?? '' ?></button></td>
+                            <td>
+                                <button class="editBtn btn btn-primary" data-id="<?php echo $order['_id'] ?? ''; ?>"
+                                    data-status="<?php echo $order['status'] ?? ''; ?>" data-bs-toggle="modal"
+                                    data-bs-target="#editModal">Edit</button>
+                                <button class="delete btn btn-danger"
+                                    data-id="<?php echo $order['_id'] ?? ''; ?>">Delete</button>
+                            </td>
+                        </tr>
                     <?php } ?>
                 </table>
-            </div> 
+            </div>
         </div>
-    </div>  
+    </div>
 
-<!-- Modal -->
-<div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="editModalLabel">Edit Status</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-<form id="editForm" method="post">
-<div class="mb-3">
-<label for="status" class="form-label">Status:</label>
-<select id="status" name="status" class="form-select">
-<option value="To Pay">To Pay</option>
-<option value="To Ship">To Ship</option>
-<option value="To Receive">To Receive</option>
-<option value="Cancelled">Cancelled</option>
-<option value="Received">Received</option>
-</select>
-</div>
-<button type="submit" class="btn btn-success">Save Changes</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-<!--modal-->
+    <!-- Modal -->
+    <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" method="post">
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status:</label>
+                            <select id="status" name="status" class="form-select">
+                                <option value="To Pay">To Pay</option>
+                                <option value="To Ship">To Ship</option>
+                                <option value="To Receive">To Receive</option>
+                                <option value="Cancelled">Cancelled</option>
+                                <option value="Received">Received</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--modal-->
 </body>
+
+<style>
+    .section {
+        position: absolute;
+        top: 100px;
+    }
+
+    .menu {
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .container {
+        max-width: 1700px;
+    }
+
+    .user-info {
+        margin-top: -848px;
+    }
+</style>
+
 <script>
-// When the edit button is clicked
-document.querySelectorAll('.editBtn').forEach(button => {
-    button.addEventListener('click', function() {
-        // Get the order ID and status from the data attributes
-        const orderId = this.getAttribute('data-id');
-        const currentStatus = this.getAttribute('data-status');
+    // When the edit button is clicked
+    document.querySelectorAll('.editBtn').forEach(button => {
+        button.addEventListener('click', function () {
+            // Get the order ID and status from the data attributes
+            const orderId = this.getAttribute('data-id');
+            const currentStatus = this.getAttribute('data-status');
 
-        // Populate the modal with the current status
-        document.querySelector('#status').value = currentStatus;
+            // Populate the modal with the current status
+            document.querySelector('#status').value = currentStatus;
 
-        // Set the order ID to a hidden field in the form (so it gets submitted)
-        const form = document.querySelector('#editForm');
-        const orderIdInput = document.createElement('input');
-        orderIdInput.type = 'hidden';
-        orderIdInput.name = 'order_id';
-        orderIdInput.value = orderId;
-        form.appendChild(orderIdInput);
+            // Set the order ID to a hidden field in the form (so it gets submitted)
+            const form = document.querySelector('#editForm');
+            const orderIdInput = document.createElement('input');
+            orderIdInput.type = 'hidden';
+            orderIdInput.name = 'order_id';
+            orderIdInput.value = orderId;
+            form.appendChild(orderIdInput);
+        });
     });
-});
 </script>
 
 </html>

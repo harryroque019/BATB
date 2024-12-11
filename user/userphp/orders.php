@@ -10,18 +10,21 @@ if (!isset($_SESSION['_id'])) {
 $client = new MongoDB\Client;
 $collectionorder = $client->BTBA->order;
 
-// Fetch orders for the logged-in user
+// Fetch orders for the logged-in user with status 'To Pay', 'To Ship', or 'To Receive'
 $userId = $_SESSION['_id'] ?? null;
 $currentOrders = [];
+
 if ($userId) {
+    // Fetch orders with matching statuses for the logged-in user
     $currentOrders = array_map(function ($currOr) {
-        $currOr['quantity'] = (int) ($currOr['quantity'] ?? 0); // Ensure quantity is an integer
-        $currOr['total_price'] = (int) ($currOr['total_price'] ?? 0); // Ensure total_price is an integer
+        // Ensure quantity and total_price are integers
+        $currOr['quantity'] = (int)($currOr['quantity'] ?? 0);
+        $currOr['total_price'] = (int)($currOr['total_price'] ?? 0);
         return $currOr; // Return processed order
     }, iterator_to_array($collectionorder->find([
-        'user_id' => $userId, // Match logged-in user's ID
+        'user_id' => $userId, // Match the logged-in user's ID
         'status' => [
-            '$in' => ['To Pay', 'To Ship', 'To Receive'] // Match any of the specified statuses
+            '$in' => ['To Pay', 'To Ship', 'To Receive'] // Match any of these statuses
         ]
     ])));
 }

@@ -18,7 +18,7 @@ $admininfo = $collectionadmin->findOne(['_id' => $currEmail]);
                 <div class="image1">
                     <img src="/../allasset/registerUser.png" alt="" style="height: 250px; width: 280px;"/>
                 </div>
-                <div class="welcome">
+                <div class="welcome">       
                     <h3>WELCOME ADMIN:</h3>
                     <p>USERNAME: <?php echo $admininfo['username'];?></p>
                     <p>NAME: <?php echo $admininfo['firstname'];?> <?php echo $admininfo['lastname'];?></p>
@@ -26,7 +26,7 @@ $admininfo = $collectionadmin->findOne(['_id' => $currEmail]);
                     <p>PHONE NUMBER: <?php echo $admininfo['phonenumber'];?></p>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btnupdate">UPDATE</button>
                 </div>
-            </div>
+            </div>          
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
